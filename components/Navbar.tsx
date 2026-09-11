@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/", labelKey: "nav_home" as const },
   { href: "/about", labelKey: "nav_about" as const },
   { href: "/news", labelKey: "nav_news" as const },
+  { href: "/gallery", labelKey: "nav_gallery" as const },
   { href: "/contact", labelKey: "nav_contact" as const },
 ];
 
@@ -61,7 +62,7 @@ export default function Navbar() {
       >
         <nav
           className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between"
-          style={{ height: "72px" }}
+          style={{ height: "76px" }}
           role="navigation"
           aria-label="Main navigation"
         >
@@ -69,27 +70,27 @@ export default function Navbar() {
           <Link
             href="/"
             id="nav-logo"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-3 group"
             style={{ textDecoration: "none" }}
           >
             <div
-              className="flex items-center justify-center rounded-xl group-hover:scale-105 transition-transform duration-200"
+              className="flex items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-105"
               style={{
-                width: "38px",
-                height: "38px",
+                width: "36px",
+                height: "36px",
                 background: "linear-gradient(135deg, #6366f1, #4f46e5)",
-                boxShadow: "0 2px 12px rgba(99,102,241,0.4)",
+                color: "white",
               }}
             >
-              <Calculator size={20} color="white" strokeWidth={2.2} />
+              <Calculator size={19} color="white" strokeWidth={2.2} />
             </div>
             <div>
               <div
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontWeight: 800,
+                  fontWeight: 700,
                   fontSize: "1rem",
-                  lineHeight: 1.1,
+                  lineHeight: 1.15,
                   color: scrolled ? "var(--text-primary)" : "white",
                   transition: "color 0.3s ease",
                   letterSpacing: "-0.01em",
@@ -100,21 +101,21 @@ export default function Navbar() {
               <div
                 style={{
                   fontFamily: "var(--font-sans)",
-                  fontWeight: 400,
-                  fontSize: "0.7rem",
+                  fontWeight: 500,
+                  fontSize: "0.68rem",
                   color: scrolled ? "var(--text-muted)" : "rgba(255,255,255,0.7)",
                   transition: "color 0.3s ease",
-                  letterSpacing: "0.05em",
+                  letterSpacing: "0.14em",
                   textTransform: "uppercase",
                 }}
               >
-                Math Tutor
+                Mathematics
               </div>
             </div>
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop nav links - Studio Mirellez style (clean, no boxes, animated underline wipe) */}
+          <div className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map(({ href, labelKey }) => {
               const active = isActive(href);
               return (
@@ -122,33 +123,26 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   id={`nav-${labelKey}`}
-                  className="relative px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200"
+                  className="link-wipe text-xs font-semibold uppercase tracking-[0.14em] transition-colors duration-300"
                   style={{
                     fontFamily: "var(--font-display)",
                     color: scrolled
                       ? active
-                        ? "#6366f1"
+                        ? "var(--text-primary)"
                         : "var(--text-secondary)"
                       : active
-                        ? "white"
-                        : "rgba(255,255,255,0.75)",
+                        ? "#ffffff"
+                        : "rgba(255, 255, 255, 0.8)",
                     textDecoration: "none",
-                    background: active && scrolled ? "rgba(99,102,241,0.1)" : "transparent",
+                    padding: "6px 0",
+                    position: "relative",
                   }}
                   onMouseEnter={(e) => {
-                    if (!active) {
-                      (e.currentTarget as HTMLAnchorElement).style.color = scrolled ? "#6366f1" : "white";
-                      (e.currentTarget as HTMLAnchorElement).style.background = scrolled
-                        ? "rgba(99,102,241,0.08)"
-                        : "rgba(255,255,255,0.1)";
-                    }
+                    (e.currentTarget as HTMLAnchorElement).style.color = scrolled ? "var(--text-primary)" : "#ffffff";
                   }}
                   onMouseLeave={(e) => {
                     if (!active) {
-                      (e.currentTarget as HTMLAnchorElement).style.color = scrolled
-                        ? "var(--text-secondary)"
-                        : "rgba(255,255,255,0.75)";
-                      (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                      (e.currentTarget as HTMLAnchorElement).style.color = scrolled ? "var(--text-secondary)" : "rgba(255, 255, 255, 0.8)";
                     }
                   }}
                 >
@@ -156,10 +150,10 @@ export default function Navbar() {
                   {active && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute bottom-1 left-4 right-4 rounded-full"
+                      className="absolute -bottom-1 left-0 right-0"
                       style={{
-                        height: "2px",
-                        background: scrolled ? "#6366f1" : "white",
+                        height: "1.5px",
+                        background: scrolled ? "var(--text-primary)" : "#ffffff",
                       }}
                     />
                   )}
@@ -169,25 +163,25 @@ export default function Navbar() {
           </div>
 
           {/* Desktop controls */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-4">
             <LanguageToggle />
+            <div style={{ width: "1px", height: "16px", background: scrolled ? "var(--border)" : "rgba(255,255,255,0.2)" }} />
             <ThemeToggle />
           </div>
 
           {/* Mobile: controls + hamburger */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-3">
             <ThemeToggle />
             <button
               id="mobile-menu-toggle"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              className="flex items-center justify-center w-10 h-10 rounded-xl"
+              className="flex items-center justify-center w-9 h-9 cursor-pointer"
               style={{
-                background: "var(--bg-secondary)",
-                border: "1px solid var(--border)",
-                transition: "all 0.2s ease",
-                color: "var(--text-primary)",
+                background: "transparent",
+                border: "none",
+                color: scrolled ? "var(--text-primary)" : "white",
               }}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -199,7 +193,7 @@ export default function Navbar() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <X size={18} strokeWidth={2.2} />
+                    <X size={20} strokeWidth={2} />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -209,7 +203,7 @@ export default function Navbar() {
                     exit={{ rotate: -90, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Menu size={18} strokeWidth={2.2} />
+                    <Menu size={20} strokeWidth={2} />
                   </motion.div>
                 )}
               </AnimatePresence>

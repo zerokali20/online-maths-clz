@@ -107,24 +107,36 @@ export default function Footer() {
             }}>
               {t("footer_quick_links")}
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: 0,
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
+                gap: "10px 16px",
+              }}
+            >
               {[
                 { href: "/", label: t("nav_home") },
                 { href: "/about", label: t("nav_about") },
+                { href: "/gallery", label: t("nav_gallery") },
                 { href: "/news", label: t("nav_news") },
                 { href: "/contact", label: t("nav_contact") },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
+                    className="link-wipe"
                     style={{
                       fontFamily: "var(--font-sans)",
-                      fontSize: "0.9rem",
+                      fontSize: "0.875rem",
                       color: "var(--text-secondary)",
                       textDecoration: "none",
+                      display: "inline-block",
                       transition: "color 0.2s ease",
                     }}
-                    onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "#6366f1"}
+                    onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)"}
                     onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)"}
                   >
                     {label}
@@ -187,7 +199,22 @@ export default function Footer() {
             {t("footer_copy")}
           </p>
           <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-            Built by Bhagya Karunanayake
+            Built by{" "}
+            <a
+              href="https://www.linkedin.com/in/bhagya-karunanayake-b52085270/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--text-secondary)",
+                textDecoration: "underline",
+                textUnderlineOffset: "4px",
+                transition: "color 0.2s ease"
+              }}
+              onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "#6366f1"}
+              onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)"}
+            >
+              Bhagya Karunanayake
+            </a>
           </p>
         </div>
       </div>

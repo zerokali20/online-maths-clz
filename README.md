@@ -79,7 +79,7 @@ Edit `/data/about.ts`:
 ```ts
 export default {
   name: "Sumedha Karunanayake",
-  yearsExperience: "25+",
+  yearsExperience: "23+",
   bio: "Your real biography here...",
   qualifications: ["B.Sc. in Mathematics", ...],
   teachingPhilosophy: "Your teaching philosophy...",

@@ -14,11 +14,11 @@ import about from "@/data/about";
 const fadeInUp = {
   initial: { opacity: 0, y: 32 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] },
+  transition: { duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
 };
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const latestNews = news.slice(0, 4);
 
   return (
@@ -159,8 +159,8 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
             {[
-              { icon: Award, value: "25+", label: "Years Teaching" },
-              { icon: Users, value: "500+", label: "Students Guided" },
+              { icon: Award, value: "23+", label: "Years Teaching" },
+              { icon: Users, value: "10,000+", label: "Students Guided" },
               { icon: Star, value: "95%", label: "Distinction Rate" },
             ].map(({ icon: Icon, value, label }, i) => (
               <motion.div
@@ -249,14 +249,13 @@ export default function HomePage() {
               </Link>
             </motion.div>
 
-            {/* Visual card */}
+            {/* Visual content */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="glass-card"
-              style={{ padding: "40px", textAlign: "center" }}
+              style={{ padding: "20px 0", textAlign: "center" }}
             >
               {/* Tutor photo */}
               <div
@@ -299,7 +298,7 @@ export default function HomePage() {
               </p>
               {/* Qualification pills */}
               <div className="flex flex-wrap gap-2 justify-center">
-                {about.qualifications.slice(0, 3).map((q) => (
+                {(lang === "si" && about.qualifications_si ? about.qualifications_si : about.qualifications).slice(0, 3).map((q) => (
                   <span
                     key={q}
                     style={{
@@ -351,7 +350,7 @@ export default function HomePage() {
                   textTransform: "uppercase",
                 }}
               >
-                Updates
+                {lang === "si" ? "යාවත්කාලීන" : "Updates"}
               </span>
               <h2
                 style={{

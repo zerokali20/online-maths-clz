@@ -31,8 +31,8 @@ interface ContactItemProps {
 function ContactItem({ icon, label, value, href, color = "#6366f1" }: ContactItemProps) {
   const inner = (
     <div
-      className="glass-card flex items-start gap-4 group"
-      style={{ padding: "24px" }}
+      className="flex items-start gap-4 group"
+      style={{ padding: "16px 8px" }}
     >
       <div
         className="flex items-center justify-center rounded-2xl flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
@@ -147,8 +147,8 @@ export default function ContactClient() {
       {/* ── Contact Info ──────────────────────────────────────── */}
       <section className="section-base" style={{ padding: "0 0 80px" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <motion.div {...fadeInUp}>
+          <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 justify-items-center mb-16">
+            <motion.div {...fadeInUp} className="w-full max-w-xs">
               <ContactItem
                 icon={<Mail size={22} color="#6366f1" strokeWidth={2} />}
                 label={t("contact_email_label")}
@@ -158,7 +158,7 @@ export default function ContactClient() {
               />
             </motion.div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.1, duration: 0.6 }}>
+            <motion.div {...fadeInUp} transition={{ delay: 0.1, duration: 0.6 }} className="w-full max-w-xs">
               <ContactItem
                 icon={<Phone size={22} color="#10b981" strokeWidth={2} />}
                 label={t("contact_phone_label")}
@@ -169,7 +169,7 @@ export default function ContactClient() {
             </motion.div>
 
             {contact.whatsapp && (
-              <motion.div {...fadeInUp} transition={{ delay: 0.15, duration: 0.6 }}>
+              <motion.div {...fadeInUp} transition={{ delay: 0.15, duration: 0.6 }} className="w-full max-w-xs">
                 <ContactItem
                   icon={<MessageCircle size={22} color="#25d366" strokeWidth={2} />}
                   label="WhatsApp"
@@ -180,7 +180,7 @@ export default function ContactClient() {
               </motion.div>
             )}
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.6 }}>
+            <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.6 }} className="w-full max-w-xs">
               <ContactItem
                 icon={<MapPin size={22} color="#f59e0b" strokeWidth={2} />}
                 label={t("contact_address_label")}
@@ -289,9 +289,10 @@ export default function ContactClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass-card mt-6"
+            className="glass-card mt-12"
             style={{
               padding: "32px",
+              marginTop: "48px",
               background: "linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.05))",
               borderColor: "rgba(99,102,241,0.2)",
             }}

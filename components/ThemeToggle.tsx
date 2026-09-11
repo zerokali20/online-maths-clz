@@ -16,10 +16,51 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const handleToggle = () => {
+  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (isAnimating || !mounted) return;
 
-    // Get button position for circular reveal origin
+    const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+
+    // Native Document View Transition API with circular clip-path (kavithakanchana.me effect)
+    if (typeof document !== "undefined" && "startViewTransition" in document) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      setIsAnimating(true);
+      const transition = (document as unknown as {
+        startViewTransition: (callback: () => void) => { ready: Promise<void>; finished: Promise<void> };
+      }).startViewTransition(() => {
+        setTheme(nextTheme);
+      });
+
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration: 500,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            pseudoElement: "::view-transition-new(root)",
+          }
+        );
+      });
+
+      transition.finished.finally(() => {
+        setIsAnimating(false);
+      });
+      return;
+    }
+
+    // Fallback animation for browsers without startViewTransition
     if (buttonRef.current && overlayRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
@@ -29,20 +70,16 @@ export default function ThemeToggle() {
     }
 
     setIsAnimating(true);
-    const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
-
-    // Animate the overlay circle
     if (overlayRef.current) {
       const overlay = overlayRef.current;
-      const bgColor = nextTheme === "dark" ? "#0f172a" : "#f8fafc";
+      const bgColor = nextTheme === "dark" ? "#09090b" : "#ffffff";
       overlay.style.background = bgColor;
-      overlay.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+      overlay.style.transition = "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)";
       overlay.style.transform = "scale(3)";
 
       setTimeout(() => {
         setTheme(nextTheme);
-        overlay.style.transition =
-          "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+        overlay.style.transition = "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)";
         overlay.style.transform = "scale(0)";
         setTimeout(() => {
           setIsAnimating(false);
@@ -57,7 +94,7 @@ export default function ThemeToggle() {
   // Prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-xl" style={{ background: "var(--border)" }} />
+      <div className="w-8 h-8 rounded-full opacity-0" />
     );
   }
 
@@ -79,19 +116,17 @@ export default function ThemeToggle() {
         onClick={handleToggle}
         disabled={isAnimating}
         aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-        className="relative flex items-center justify-center w-10 h-10 rounded-xl overflow-hidden cursor-pointer"
+        className="relative flex items-center justify-center w-9 h-9 rounded-full cursor-pointer transition-colors duration-200"
         style={{
-          background: "var(--bg-secondary)",
-          border: "1px solid var(--border)",
-          transition: "background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease",
+          background: "transparent",
+          border: "none",
+          color: "var(--text-primary)",
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.08)";
-          (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 16px rgba(99,102,241,0.3)";
+          (e.currentTarget as HTMLButtonElement).style.background = "var(--border)";
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
-          (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+          (e.currentTarget as HTMLButtonElement).style.background = "transparent";
         }}
       >
         <AnimatePresence mode="wait">

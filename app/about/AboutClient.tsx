@@ -14,7 +14,7 @@ const fadeInUp = {
 };
 
 export default function AboutClient() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <>
@@ -177,22 +177,83 @@ export default function AboutClient() {
                   {t("about_qualifications_heading")}
                 </h3>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-                  {about.qualifications.map((q) => (
+                  {(lang === "si" && about.qualifications_si ? about.qualifications_si : about.qualifications).map((q) => (
                     <li
                       key={q}
                       className="flex items-start gap-2.5"
-                      style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}
+                      style={{ color: "var(--text-secondary)", fontSize: "0.875rem", lineHeight: 1.5 }}
                     >
                       <CheckCircle
                         size={15}
                         color="#10b981"
                         strokeWidth={2.5}
-                        style={{ marginTop: "2px", flexShrink: 0 }}
+                        style={{ marginTop: "3px", flexShrink: 0 }}
                       />
-                      {q}
+                      <span>{q}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              {/* Award Winning Moment Card */}
+              <div
+                className="glass-card overflow-hidden"
+                style={{ padding: "22px" }}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Award size={18} color="#f59e0b" strokeWidth={2.2} />
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 700,
+                      fontSize: "0.95rem",
+                      color: "var(--text-primary)",
+                    }}
+                  >
+                    {lang === "si" ? "සම්මානනීය මොහොත" : "Award-Winning Moment"}
+                  </h3>
+                </div>
+
+                <div
+                  className="relative rounded-xl overflow-hidden mb-3 select-none"
+                  style={{ aspectRatio: "4/3", width: "100%", background: "rgba(0,0,0,0.2)" }}
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  <Image
+                    src="/images/gallery/Award.jpg"
+                    alt="Best Central Province Mathematics Teacher Award at Shilpabhimani Event"
+                    fill
+                    style={{ objectFit: "cover", objectPosition: "center 20%" }}
+                    className="protected-image"
+                    sizes="(max-width: 768px) 100vw, 360px"
+                  />
+                  <div className="protect-overlay" />
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 700,
+                    fontSize: "0.875rem",
+                    color: "var(--text-primary)",
+                    marginBottom: "4px",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {lang === "si"
+                    ? "මධ්‍යම පළාතේ හොඳම ගණිත ගුරු සම්මානය"
+                    : "Best Central Province Mathematics Teacher"}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "0.78rem",
+                    color: "#6366f1",
+                    fontWeight: 600,
+                  }}
+                >
+                  {lang === "si" ? "ශිල්පාභිමානී සම්මාන උළෙල" : "Shilpabhimani (ශිල්පාභිමානී) Event"}
+                </p>
               </div>
             </motion.div>
 
@@ -215,23 +276,31 @@ export default function AboutClient() {
                     marginBottom: "20px",
                   }}
                 >
-                  About{" "}
-                  <span className="gradient-text">{about.name}</span>
+                  {lang === "si" ? (
+                    <>
+                      <span className="gradient-text">{about.name}</span> ගැන
+                    </>
+                  ) : (
+                    <>
+                      About <span className="gradient-text">{about.name}</span>
+                    </>
+                  )}
                 </h2>
-                {/* TODO: Replace placeholder bio text via /data/about.ts */}
-                {about.bio.split("\n\n").map((para, i) => (
-                  <p
-                    key={i}
-                    style={{
-                      color: "var(--text-secondary)",
-                      fontSize: "1rem",
-                      lineHeight: 1.8,
-                      marginBottom: i < about.bio.split("\n\n").length - 1 ? "1rem" : 0,
-                    }}
-                  >
-                    {para.trim()}
-                  </p>
-                ))}
+                {((lang === "si" && about.bio_si ? about.bio_si : about.bio))
+                  .split("\n\n")
+                  .map((para, i, arr) => (
+                    <p
+                      key={i}
+                      style={{
+                        color: "var(--text-secondary)",
+                        fontSize: "1rem",
+                        lineHeight: 1.8,
+                        marginBottom: i < arr.length - 1 ? "1.25rem" : 0,
+                      }}
+                    >
+                      {para.trim()}
+                    </p>
+                  ))}
               </div>
 
               {/* Teaching Philosophy */}

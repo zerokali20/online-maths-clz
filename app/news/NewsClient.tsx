@@ -10,7 +10,7 @@ import news from "@/data/news";
 const ITEMS_PER_PAGE = 4;
 
 export default function NewsClient() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(news.length / ITEMS_PER_PAGE);
@@ -50,7 +50,7 @@ export default function NewsClient() {
                 textTransform: "uppercase",
               }}
             >
-              Updates
+              {lang === "si" ? "යාවත්කාලීන" : "Updates"}
             </span>
             <h1
               style={{
