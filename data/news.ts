@@ -37,8 +37,8 @@ const rawNews: NewsItem[] = [
     description_si:
       "9, 10, 11 ශ්‍රේණිවල සිසුන් සඳහා Zoom ඔස්සේ සජීවීව පැවැත්වෙන නොමිලේ අත්වැල කාලසටහන. 9 ශ්‍රේණිය (බ්‍රහස්පතින්දා සහ ඉරිදා), 10 ශ්‍රේණිය (සඳුදා, බ්‍රහස්පතින්දා සහ ඉරිදා), සහ 11 ශ්‍රේණිය (අඟහරුවාදා, බදාදා සහ සෙනසුරාදා) ආවරණය කෙරේ. වැඩි විස්තර සඳහා සම්බන්ධ වන්න.",
     link: undefined,
-    thumbnail: "/images/news/time-table-green.jpg",
-    images: ["/images/news/time-table-green.jpg", "/images/news/time-table-pink.jpg"],
+    thumbnail: "/images/news/time-table-2026.jpg",
+    images: ["/images/news/time-table-2026.jpg"],
     thumbnailPosition: "center center",
   },
   {
