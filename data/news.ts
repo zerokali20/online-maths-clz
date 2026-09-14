@@ -16,12 +16,14 @@ export interface NewsItem {
   description_si?: string;
   /** Optional external URL (e.g. YouTube video, results announcement) */
   link?: string;
-  /** Optional thumbnail image path — place images in /public/images/news/ */
+  /** Optional thumbnail image path or URL — place local images in /public/images/news/ */
   thumbnail?: string;
   /** Optional multiple images array for galleries/multi-image news */
   images?: string[];
   /** Optional object position for thumbnail preview e.g. "top center" or "center 15%" */
   thumbnailPosition?: string;
+  /** Optional YouTube video ID — enables YouTube-style card with play button */
+  youtubeId?: string;
 }
 
 // ─── News items ───────────────────────────────────────────────
@@ -72,16 +74,21 @@ const rawNews: NewsItem[] = [
   },
   {
     id: "news-5",
-    title: "New YouTube Video: Solving Simultaneous Equations",
-    title_si: "නව YouTube වීඩියෝව: සමගාමී සමීකරණ විසඳීම",
-    date: "2025-06-10",
+    /** Sinhala title taken directly from the YouTube video caption */
+    title_si: "වීඩිය භාග සහිත සරල සමීකරණ මේ විදියට විසදන්න 😎 | Sumedha Karunanayake",
+    /** English translation of the YouTube caption */
+    title: "Solve Simple Equations with Fractions This Way 😎 | Sumedha Karunanayake",
+    date: "2026-09-15",
     category: "video",
-    description:
-      "A new tutorial video on solving simultaneous equations using the substitution and elimination methods is now live on YouTube. Free for all students!",
     description_si:
-      "ආදේශ ක්‍රමය සහ ඉවත් කිරීමේ ක්‍රමය භාවිතයෙන් සමගාමී සමීකරණ විසඳීම පිළිබඳ නව නිබන්ධන වීඩියෝව දැන් YouTube ඔස්සේ නැරඹිය හැක. සියලුම සිසුන්ට නොමිලේ!",
-    link: "https://youtube.com", // TODO: Replace with real YouTube link
-    thumbnail: undefined,
+      "වීඩිය භාග සහිත සරල සමීකරණ පහසුවෙන් විසදා ගන්නේ කෙසේද? Sumedha Karunanayake ගේ නව YouTube වීඩියෝව නැරඹීමට දැන් ක්ලික් කරන්න. සියලුම සිසුන්ට නොමිලේ!",
+    description:
+      "How to easily solve simple equations with fractional coefficients? Watch the brand-new YouTube video by Sumedha Karunanayake — click now to watch it for free!",
+    link: "https://youtu.be/1scdMy77Chw",
+    /** YouTube-hosted thumbnail — no local image needed */
+    thumbnail: "https://img.youtube.com/vi/1scdMy77Chw/maxresdefault.jpg",
+    /** Flag so the card knows this is a YouTube video */
+    youtubeId: "1scdMy77Chw",
   },
   {
     id: "news-4",

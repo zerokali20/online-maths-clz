@@ -96,6 +96,11 @@ export default function NewsCard({ item }: NewsCardProps) {
   };
 
   const handleCardClick = () => {
+    // For YouTube video cards, open YouTube directly on card click
+    if (item.youtubeId && item.link) {
+      window.open(item.link, "_blank", "noopener,noreferrer");
+      return;
+    }
     setActiveImgIdx(0);
     setDirection(0);
     setIsOpen(true);
@@ -113,8 +118,92 @@ export default function NewsCard({ item }: NewsCardProps) {
         className="glass-card flex flex-col h-full overflow-hidden cursor-pointer group"
         style={{ padding: 0 }}
       >
-        {/* Square / cropped image box if thumbnail exists */}
-        {item.thumbnail ? (
+        {/* YouTube-style thumbnail for video items with youtubeId */}
+        {item.youtubeId ? (
+          <div
+            className="relative w-full overflow-hidden bg-black select-none"
+            style={{ aspectRatio: "4 / 3", minHeight: "220px" }}
+            onContextMenu={handleContextMenu}
+          >
+            {/* Thumbnail image */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none pointer-events-none"
+              draggable={false}
+            />
+
+            {/* Dark gradient overlay like YouTube */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 40%, transparent 100%)",
+              }}
+            />
+
+            {/* YouTube red play button — centred */}
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ zIndex: 20 }}
+            >
+              <div
+                className="flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
+                style={{
+                  width: "64px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  background: "#FF0000",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                }}
+              >
+                {/* YouTube-style play triangle */}
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Category badge — top left */}
+            <div className="absolute top-3 left-3 z-30 pointer-events-none">
+              <span
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${config.className}`}
+                style={{ fontFamily: "var(--font-display)", backdropFilter: "blur(8px)" }}
+              >
+                <Icon size={12} strokeWidth={2.5} />
+                {t(config.labelKey)}
+              </span>
+            </div>
+
+            {/* "YouTube" pill — bottom right, like a channel badge */}
+            <div className="absolute bottom-3 right-3 z-30 pointer-events-none">
+              <span
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold"
+                style={{
+                  background: "#FF0000",
+                  color: "white",
+                  fontFamily: "var(--font-display)",
+                  letterSpacing: "0.03em",
+                }}
+              >
+                {/* YouTube wordmark icon */}
+                <svg width="14" height="10" viewBox="0 0 90 63" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M88.1 9.9C87 6 84.1 3.1 80.2 2 73.2 0 45 0 45 0S16.8 0 9.8 2C5.9 3.1 3 6 1.9 9.9 0 16.9 0 31.5 0 31.5s0 14.6 1.9 21.6C3 57 5.9 59.9 9.8 61c7 1.9 35.2 1.9 35.2 1.9s28.2 0 35.2-1.9c3.9-1.1 6.8-4 7.9-7.9C90 46.1 90 31.5 90 31.5s0-14.6-1.9-21.6z"/>
+                  <path d="M36 45l23.3-13.5L36 18V45z" fill="#FF0000"/>
+                </svg>
+                YouTube
+              </span>
+            </div>
+          </div>
+        ) : item.thumbnail ? (
+          /* Square / cropped image box if regular thumbnail exists */
           <div
             className="relative w-full overflow-hidden bg-slate-900 select-none"
             style={{ aspectRatio: "4 / 3", minHeight: "220px" }}
