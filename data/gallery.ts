@@ -10,7 +10,7 @@ export interface GalleryPhoto {
 }
 
 const gallery: GalleryPhoto[] = [
-  { id: "g1", src: "", alt: "Mathematics class in session", caption: "Grade 9 - Algebra class", category: "class", aspect: "landscape" },
+  { id: "g1", src: "/images/gallery/9.jpg", alt: "Mathematics class in session", caption: "Grade 9 - Algebra class", category: "class", aspect: "landscape" },
   { id: "g2", src: "", alt: "Whiteboard with mathematical equations", caption: "Quadratic equations explained", category: "whiteboard", aspect: "landscape" },
   { id: "g3", src: "", alt: "Students working through problems", caption: "Problem-solving session", category: "students", aspect: "square" },
   { id: "g4", src: "", alt: "O/L revision class", caption: "O/L revision - Grade 11", category: "class", aspect: "portrait" },
