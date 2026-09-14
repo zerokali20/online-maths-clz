@@ -67,7 +67,8 @@ const rawNews: NewsItem[] = [
       "අපගේ භෞතික පන්තිවලට සහභාගී වූ 2025 අ.පො.ස. සා/පෙළ සිසුන්ගේ ඉහළම විශිෂ්ට ප්‍රතිඵල.",
     link: undefined,
     thumbnail: "/images/news/results-2025.jpg",
-    thumbnailPosition: "top 8%",
+    images: ["/images/news/results-2025.jpg"],
+    thumbnailPosition: "top center",
   },
   {
     id: "news-5",
