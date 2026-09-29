@@ -28,7 +28,7 @@ const contact: ContactData = {
   mapEmbedUrl: undefined, // TODO: Add Google Maps embed URL if needed
   socials: {
     youtube: "https://www.youtube.com/@SumedhaKarunanayake-1",
-    facebook: undefined, // TODO: Add Facebook page URL
+    facebook: "https://www.facebook.com/share/1DfPSNZPdL/",
     instagram: undefined, // TODO: Add Instagram profile URL
   },
 };

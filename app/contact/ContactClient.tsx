@@ -246,15 +246,17 @@ export default function ContactClient() {
                       aria-label="Facebook Page"
                       className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-all duration-200"
                       style={{
-                        background: "rgba(59,130,246,0.1)",
-                        border: "1px solid rgba(59,130,246,0.25)",
-                        color: "#3b82f6",
+                        background: "rgba(24,119,242,0.1)",
+                        border: "1px solid rgba(24,119,242,0.25)",
+                        color: "#1877f2",
                         textDecoration: "none",
                         fontFamily: "var(--font-display)",
                         fontSize: "0.875rem",
                       }}
+                      onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(24,119,242,0.2)"}
+                      onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(24,119,242,0.1)"}
                     >
-                      <FacebookIcon size={18} colored={true} />
+                      <FacebookIcon size={20} colored={true} />
                       Facebook
                     </a>
                   )}

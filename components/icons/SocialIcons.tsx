@@ -213,11 +213,29 @@ export function FacebookIcon({
   size = 20,
   className = "",
   colored = false,
+  variant = "circle",
 }: {
   size?: number;
   className?: string;
   colored?: boolean;
+  variant?: "circle" | "f";
 }) {
+  if (variant === "f") {
+    return (
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        aria-hidden="true"
+      >
+        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.47-2 2-2h1.5V2.14c-.326-.043-1.442-.14-2.742-.14-2.768 0-4.758 1.688-4.758 4.884V9.5H7v4h3v10h4v-10z" />
+      </svg>
+    );
+  }
+
   if (colored) {
     return (
       <svg

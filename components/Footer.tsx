@@ -95,22 +95,19 @@ export default function Footer() {
                     style={{
                       background: "var(--bg-card)",
                       border: "1px solid var(--border)",
-                      color: "var(--text-secondary)",
                     }}
                     onMouseEnter={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.color = "#1877f2";
                       (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1877f2";
                       (e.currentTarget as HTMLAnchorElement).style.background = "rgba(24, 119, 242, 0.08)";
                       (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 12px rgba(24, 119, 242, 0.25)";
                     }}
                     onMouseLeave={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)";
                       (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
                       (e.currentTarget as HTMLAnchorElement).style.background = "var(--bg-card)";
                       (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
                     }}
                   >
-                    <FacebookIcon size={17} />
+                    <FacebookIcon size={19} colored={true} />
                   </a>
                 )}
                 {contact.socials.instagram && (
