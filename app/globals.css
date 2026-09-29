@@ -1,5 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+
+/* ── FMDerana (UN-Derana) Sinhala Font ────────────────────── */
+@font-face {
+  font-family: "UN-Derana";
+  src: url("/fonts/UN-Derana.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 110%;
+}
+
+@font-face {
+  font-family: "FMDerana";
+  src: url("/fonts/UN-Derana.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 110%;
+}
 
 /* ── Theme Configuration ─────────────────────────────────── */
 @theme {
@@ -19,12 +38,17 @@
   --color-accent-500: #10b981;
   --color-accent-600: #059669;
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Outfit", "Inter", sans-serif;
+  --font-sans: "Inter", "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", system-ui, sans-serif;
+  --font-display: "Outfit", "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", sans-serif;
+  --font-sinhala: "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", sans-serif;
 }
 
 /* ── CSS Custom Properties ───────────────────────────────── */
 :root {
+  --font-sans: "Inter", "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", system-ui, sans-serif;
+  --font-display: "Outfit", "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", sans-serif;
+  --font-sinhala: "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", sans-serif;
+
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-card: #ffffff;
@@ -37,6 +61,35 @@
   --navbar-bg: rgba(255, 255, 255, 0.82);
   --transition-theme: background-color 0.35s ease, color 0.35s ease,
     border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ── Sinhala Language Typography (FMDerana Style) ────────── */
+html[lang="si"],
+html[data-lang="si"],
+[data-lang="si"],
+:lang(si) {
+  --font-sans: "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", "Inter", sans-serif;
+  --font-display: "UN-Derana", "FMDerana", "Gemunu Libre", "Noto Sans Sinhala", "Outfit", sans-serif;
+  font-size: 104%;
+  letter-spacing: 0.012em;
+}
+
+html[lang="si"] body,
+html[data-lang="si"] body {
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+html[lang="si"] h1,
+html[lang="si"] h2,
+html[lang="si"] h3,
+html[lang="si"] h4,
+[data-lang="si"] h1,
+[data-lang="si"] h2,
+[data-lang="si"] h3,
+[data-lang="si"] h4 {
+  font-family: var(--font-display);
+  line-height: 1.38;
 }
 
 .dark {

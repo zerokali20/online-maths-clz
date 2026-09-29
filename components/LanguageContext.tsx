@@ -37,6 +37,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  // Update HTML document attributes when language changes
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.setAttribute("data-lang", lang);
+  }, [lang]);
+
   const toggleLang = useCallback(() => {
     setLang((prev) => {
       const next: Lang = prev === "en" ? "si" : "en";
