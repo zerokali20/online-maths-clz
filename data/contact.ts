@@ -27,7 +27,7 @@ const contact: ContactData = {
   address: "Mirigama, Sri Lanka", // TODO: Replace with real address
   mapEmbedUrl: undefined, // TODO: Add Google Maps embed URL if needed
   socials: {
-    youtube: undefined, // TODO: Add YouTube channel URL
+    youtube: "https://www.youtube.com/@SumedhaKarunanayake-1",
     facebook: undefined, // TODO: Add Facebook page URL
     instagram: undefined, // TODO: Add Instagram profile URL
   },

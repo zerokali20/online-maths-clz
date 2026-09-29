@@ -29,6 +29,62 @@ export interface NewsItem {
 // ─── News items ───────────────────────────────────────────────
 const rawNews: NewsItem[] = [
   {
+    id: "news-yt-10-day4",
+    title: "Grade 10 Day 4 | Sumedha Karunanayake",
+    title_si: "10 ශ්‍රේණිය - 4 වන දිනය | Sumedha Karunanayake",
+    date: "2026-09-27",
+    category: "video",
+    description:
+      "Grade 10 Day 4 online mathematics seminar video conducted by 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner) Sumedha Karunanayake. Watch free on YouTube!",
+    description_si:
+      "2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලබන 10 ශ්‍රේණිය 4 වන දින සම්මන්ත්‍රණ වීඩියෝව. නොමිලේ නැරඹීමට දැන්ම ක්ලික් කරන්න!",
+    link: "https://youtu.be/FM5uvgMyDxQ",
+    thumbnail: "https://img.youtube.com/vi/FM5uvgMyDxQ/maxresdefault.jpg",
+    youtubeId: "FM5uvgMyDxQ",
+  },
+  {
+    id: "news-yt-9-day3",
+    title: "Grade 9 Day 3 (Inequalities) | Sumedha Karunanayake | Mathematics",
+    title_si: "Grade 9 Day 3 (අසමානතා) | Sumedha Karunanayake | Mathematics",
+    date: "2026-09-25",
+    category: "video",
+    description:
+      "Grade 9 Day 3 comprehensive tutorial on Inequalities (අසමානතා) conducted by Sumedha Karunanayake. Watch online on YouTube to learn step-by-step methods!",
+    description_si:
+      "9 ශ්‍රේණිය 3 වන දිනය - අසමානතා පාඩම. මධ්‍යම පළාත් හොඳම ගණිත ගුරුවර සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. නොමිලේ නැරඹීමට YouTube නාලිකාවට පිවිසෙන්න!",
+    link: "https://youtu.be/2A39KqRDu-4",
+    thumbnail: "https://img.youtube.com/vi/2A39KqRDu-4/maxresdefault.jpg",
+    youtubeId: "2A39KqRDu-4",
+  },
+  {
+    id: "news-yt-10-day2",
+    title: "Grade 10 Day 2 Mathematics | Sumedha Karunanayake",
+    title_si: "10 ශ්‍රේණිය - 2 වන දිනය ගණිතය | Sumedha Karunanayake",
+    date: "2026-09-19",
+    category: "video",
+    description:
+      "Grade 10 Day 2 Mathematics seminar session by Sumedha Karunanayake. Covering crucial syllabus areas, shortcut techniques, and worked model papers.",
+    description_si:
+      "10 ශ්‍රේණියේ සිසුන් සඳහා 2 වන දින ගණිත සම්මන්ත්‍රණය සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. විභාග ගැටලු සහ කෙටි ක්‍රම ආවරණය කෙරේ.",
+    link: "https://youtu.be/Tyn2QKJHLeA",
+    thumbnail: "https://img.youtube.com/vi/Tyn2QKJHLeA/maxresdefault.jpg",
+    youtubeId: "Tyn2QKJHLeA",
+  },
+  {
+    id: "news-yt-algebraic-fractions",
+    title: "Algebraic Fractions Short Method & Answers | Sumedha Karunanayake",
+    title_si: "වීජීය භාග කෙටි ක්‍රමය පිළිතුරු | Sumedha Karunanayake",
+    date: "2026-09-18",
+    category: "video",
+    description:
+      "Quick shortcut methods and complete answer discussion for algebraic fractions by Sumedha Karunanayake. Master algebraic fractions with ease!",
+    description_si:
+      "වීජීය භාග කෙටි ක්‍රමයෙන් විසඳීම හා පිළිතුරු සාකච්ඡාව. මධ්‍යම පළාත් හොඳම ගණිත ගුරුවර සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ.",
+    link: "https://youtu.be/ZHhuu5HspHs",
+    thumbnail: "https://img.youtube.com/vi/ZHhuu5HspHs/maxresdefault.jpg",
+    youtubeId: "ZHhuu5HspHs",
+  },
+  {
     id: "news-7",
     title: "2026 free session time table",
     title_si: "2026 නොමිලේ සම්මන්ත්‍රණ කාලසටහන",
@@ -42,6 +98,20 @@ const rawNews: NewsItem[] = [
     thumbnail: "/images/news/time-table-2026.jpg",
     images: ["/images/news/time-table-2026.jpg"],
     thumbnailPosition: "center center",
+  },
+  {
+    id: "news-5",
+    title_si: "වීජීය භාග සහිත සරල සමීකරණ මේ විදියට විසදන්න 😎 | Sumedha Karunanayake",
+    title: "Solve Simple Equations with Fractions This Way 😎 | Sumedha Karunanayake",
+    date: "2026-09-15",
+    category: "video",
+    description_si:
+      "වීජීය භාග සහිත සරල සමීකරණ පහසුවෙන් විසදා ගන්නේ කෙසේද? සුමේධ කරුණානායක ගුරුතුමන්ගේ Night Spark වැඩසටහනේ ආරම්භක වීඩියෝව. සියලුම සිසුන්ට නොමිලේ!",
+    description:
+      "How to easily solve simple equations with fractional coefficients? Watch the brand-new YouTube video from the Night Spark Program by Sumedha Karunanayake — click now to watch it for free!",
+    link: "https://youtu.be/1scdMy77Chw",
+    thumbnail: "https://img.youtube.com/vi/1scdMy77Chw/maxresdefault.jpg",
+    youtubeId: "1scdMy77Chw",
   },
   {
     id: "news-8",
@@ -73,24 +143,6 @@ const rawNews: NewsItem[] = [
     thumbnailPosition: "top center",
   },
   {
-    id: "news-5",
-    /** Sinhala title taken directly from the YouTube video caption */
-    title_si: "වීඩිය භාග සහිත සරල සමීකරණ මේ විදියට විසදන්න 😎 | Sumedha Karunanayake",
-    /** English translation of the YouTube caption */
-    title: "Solve Simple Equations with Fractions This Way 😎 | Sumedha Karunanayake",
-    date: "2026-09-15",
-    category: "video",
-    description_si:
-      "වීඩිය භාග සහිත සරල සමීකරණ පහසුවෙන් විසදා ගන්නේ කෙසේද? Sumedha Karunanayake ගේ නව YouTube වීඩියෝව නැරඹීමට දැන් ක්ලික් කරන්න. සියලුම සිසුන්ට නොමිලේ!",
-    description:
-      "How to easily solve simple equations with fractional coefficients? Watch the brand-new YouTube video by Sumedha Karunanayake — click now to watch it for free!",
-    link: "https://youtu.be/1scdMy77Chw",
-    /** YouTube-hosted thumbnail — no local image needed */
-    thumbnail: "https://img.youtube.com/vi/1scdMy77Chw/maxresdefault.jpg",
-    /** Flag so the card knows this is a YouTube video */
-    youtubeId: "1scdMy77Chw",
-  },
-  {
     id: "news-4",
     title: "Grade 9 Term 2 Classes Now Open",
     title_si: "9 ශ්‍රේණිය 2 වන වාර පන්ති දැන් ආරම්භ වේ",
@@ -114,19 +166,6 @@ const rawNews: NewsItem[] = [
     description_si:
       "පසුගිය වාර විභාගයේදී අපගේ 8 ශ්‍රේණියේ සිසුන් සාමාන්‍ය 88% ක ලකුණු ප්‍රතිශතයක් ලබා ගනිමින් ඉතා ඉහළ දක්ෂතා දැක්වූහ. සියලුම සිසුන්ට සහ දෙමාපියන්ට අපගේ උණුසුම් සුබ පැතුම්.",
     link: undefined,
-    thumbnail: undefined,
-  },
-  {
-    id: "news-2",
-    title: "New Video: Introduction to Trigonometry for Grade 10",
-    title_si: "නව වීඩියෝව: 10 ශ්‍රේණිය ත්‍රිකෝණමිතිය හැඳින්වීම",
-    date: "2025-03-14",
-    category: "video",
-    description:
-      "A beginner-friendly introduction to Trigonometry for Grade 10 students. Covers sine, cosine, tangent and their applications with worked examples.",
-    description_si:
-      "10 ශ්‍රේණියේ සිසුන් සඳහා ත්‍රිකෝණමිතිය පිළිබඳ සරල හැඳින්වීමක්. සයින්, කෝසයින්, ටැංජන සහ ඒවායේ භාවිතයන් උදාහරණ සහිතව විස්තර කෙරේ.",
-    link: "https://youtube.com", // TODO: Replace with real YouTube link
     thumbnail: undefined,
   },
   {

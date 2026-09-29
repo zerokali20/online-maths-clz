@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  MessageCircle,
-  Play,
-  Globe,
-  ExternalLink,
-} from "lucide-react";
+  YouTubeIcon,
+  FacebookIcon,
+  InstagramIcon,
+  GmailIcon,
+  PhoneIcon,
+  WhatsAppIcon,
+  GoogleMapsIcon,
+} from "@/components/icons/SocialIcons";
 import { useLanguage } from "@/components/LanguageContext";
 import contact from "@/data/contact";
 
@@ -150,17 +150,17 @@ export default function ContactClient() {
           <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 justify-items-center mb-16">
             <motion.div {...fadeInUp} className="w-full max-w-xs">
               <ContactItem
-                icon={<Mail size={22} color="#6366f1" strokeWidth={2} />}
+                icon={<GmailIcon size={26} />}
                 label={t("contact_email_label")}
                 value={contact.email}
                 href={`mailto:${contact.email}`}
-                color="#6366f1"
+                color="#ea4335"
               />
             </motion.div>
 
             <motion.div {...fadeInUp} transition={{ delay: 0.1, duration: 0.6 }} className="w-full max-w-xs">
               <ContactItem
-                icon={<Phone size={22} color="#10b981" strokeWidth={2} />}
+                icon={<PhoneIcon size={26} />}
                 label={t("contact_phone_label")}
                 value={contact.phone}
                 href={`tel:${contact.phone}`}
@@ -171,7 +171,7 @@ export default function ContactClient() {
             {contact.whatsapp && (
               <motion.div {...fadeInUp} transition={{ delay: 0.15, duration: 0.6 }} className="w-full max-w-xs">
                 <ContactItem
-                  icon={<MessageCircle size={22} color="#25d366" strokeWidth={2} />}
+                  icon={<WhatsAppIcon size={26} />}
                   label="WhatsApp"
                   value={contact.whatsapp}
                   href={`https://wa.me/${contact.whatsapp.replace(/\D/g, "")}`}
@@ -182,10 +182,11 @@ export default function ContactClient() {
 
             <motion.div {...fadeInUp} transition={{ delay: 0.2, duration: 0.6 }} className="w-full max-w-xs">
               <ContactItem
-                icon={<MapPin size={22} color="#f59e0b" strokeWidth={2} />}
+                icon={<GoogleMapsIcon size={26} />}
                 label={t("contact_address_label")}
                 value={contact.address}
-                color="#f59e0b"
+                href={contact.mapEmbedUrl || "https://maps.google.com/?q=Mirigama,+Sri+Lanka"}
+                color="#4285f4"
               />
             </motion.div>
           </div>
@@ -232,7 +233,7 @@ export default function ContactClient() {
                       onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(239,68,68,0.2)"}
                       onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(239,68,68,0.1)"}
                     >
-                      <Play size={18} strokeWidth={2} />
+                      <YouTubeIcon size={20} colored={true} />
                       YouTube
                     </a>
                   )}
@@ -253,7 +254,7 @@ export default function ContactClient() {
                         fontSize: "0.875rem",
                       }}
                     >
-                      <Globe size={18} strokeWidth={2} />
+                      <FacebookIcon size={18} colored={true} />
                       Facebook
                     </a>
                   )}
@@ -274,7 +275,7 @@ export default function ContactClient() {
                         fontSize: "0.875rem",
                       }}
                     >
-                      <ExternalLink size={18} strokeWidth={2} />
+                      <InstagramIcon size={18} />
                       Instagram
                     </a>
                   )}

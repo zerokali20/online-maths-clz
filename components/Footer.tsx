@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Calculator, Mail, Phone, MapPin, ExternalLink, Play, Globe } from "lucide-react";
+import { Calculator } from "lucide-react";
+import {
+  YouTubeIcon,
+  FacebookIcon,
+  InstagramIcon,
+  GmailIcon,
+  PhoneIcon,
+  GoogleMapsIcon,
+} from "@/components/icons/SocialIcons";
 import { useLanguage } from "./LanguageContext";
 import contact from "@/data/contact";
 
@@ -59,11 +67,22 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label="YouTube"
                     className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200"
-                    style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#ef4444"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "#ef4444"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)"; (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)"; }}
+                    style={{
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border)",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "#ef4444";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(239, 68, 68, 0.08)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 12px rgba(239, 68, 68, 0.25)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--bg-card)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+                    }}
                   >
-                    <Play size={15} strokeWidth={2} />
+                    <YouTubeIcon size={19} colored={true} />
                   </a>
                 )}
                 {contact.socials.facebook && (
@@ -73,9 +92,25 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label="Facebook"
                     className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200"
-                    style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}
+                    style={{
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-secondary)",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#1877f2";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1877f2";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(24, 119, 242, 0.08)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 12px rgba(24, 119, 242, 0.25)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--bg-card)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+                    }}
                   >
-                    <Globe size={15} strokeWidth={2} />
+                    <FacebookIcon size={17} />
                   </a>
                 )}
                 {contact.socials.instagram && (
@@ -85,9 +120,25 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     aria-label="Instagram"
                     className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200"
-                    style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}
+                    style={{
+                      background: "var(--bg-card)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-secondary)",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.color = "#e1306c";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "#e1306c";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(225, 48, 108, 0.08)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 12px rgba(225, 48, 108, 0.25)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--bg-card)";
+                      (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+                    }}
                   >
-                    <ExternalLink size={15} strokeWidth={2} />
+                    <InstagramIcon size={17} />
                   </a>
                 )}
               </div>
@@ -161,27 +212,29 @@ export default function Footer() {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
               <li className="flex items-start gap-2.5">
-                <Mail size={15} style={{ color: "#6366f1", marginTop: "2px", flexShrink: 0 }} strokeWidth={2} />
+                <span style={{ marginTop: "2px", flexShrink: 0 }}><GmailIcon size={16} /></span>
                 <a
                   href={`mailto:${contact.email}`}
                   style={{ fontSize: "0.875rem", color: "var(--text-secondary)", textDecoration: "none" }}
-                  onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "#6366f1"}
+                  onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "#ea4335"}
                   onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)"}
                 >
                   {contact.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Phone size={15} style={{ color: "#6366f1", marginTop: "2px", flexShrink: 0 }} strokeWidth={2} />
+                <span style={{ marginTop: "2px", flexShrink: 0 }}><PhoneIcon size={16} /></span>
                 <a
                   href={`tel:${contact.phone}`}
                   style={{ fontSize: "0.875rem", color: "var(--text-secondary)", textDecoration: "none" }}
+                  onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = "#10b981"}
+                  onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)"}
                 >
                   {contact.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin size={15} style={{ color: "#6366f1", marginTop: "2px", flexShrink: 0 }} strokeWidth={2} />
+                <span style={{ marginTop: "2px", flexShrink: 0 }}><GoogleMapsIcon size={16} /></span>
                 <span style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
                   {contact.address}
                 </span>
