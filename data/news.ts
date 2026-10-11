@@ -29,6 +29,34 @@ export interface NewsItem {
 // ─── News items ───────────────────────────────────────────────
 const rawNews: NewsItem[] = [
   {
+    id: "news-yt-9-day5",
+    title: "Grade 9 Day 5 | Sets (කුලක) | Sumedha Karunanayake",
+    title_si: "Grade 9 Day 5 | කුලක | Sumedha Karunanayake",
+    date: "2026-10-04",
+    category: "video",
+    description:
+      "Grade 9 Day 5 lesson on Sets (කුලක) conducted by 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner) Sumedha Karunanayake. Watch free on YouTube!",
+    description_si:
+      "2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලබන 9 ශ්‍රේණිය 5 වන දින කුලක පාඩම. නොමිලේ නැරඹීමට දැන්ම ක්ලික් කරන්න!",
+    link: "https://youtu.be/S_Mv9wQAW6M",
+    thumbnail: "https://img.youtube.com/vi/S_Mv9wQAW6M/maxresdefault.jpg",
+    youtubeId: "S_Mv9wQAW6M",
+  },
+  {
+    id: "news-yt-11-day4",
+    title: "Grade 11 Day 4 | Sabaragamuwa Province Past Paper Discussion | Sumedha Karunanayake",
+    title_si: "11 ශ්‍රේණිය - 4 වන දිනය | සබරගමුව Paper Answers | Sumedha Karunanayake",
+    date: "2026-10-02",
+    category: "video",
+    description:
+      "Grade 11 O/L Sabaragamuwa Province exam paper discussion and comprehensive worked answers by Sumedha Karunanayake. Watch online on YouTube!",
+    description_si:
+      "11 ශ්‍රේණිය O/L සිසුන් සඳහා සබරගමුව පළාත් ප්‍රශ්න පත්‍ර සාකච්ඡාව සහ සම්පූර්ණ පිළිතුරු විවරණය සුමේධ කරුණානායක ගුරුතුමන් විසිනි. නොමිලේ නැරඹීමට දැන්ම පිවිසෙන්න!",
+    link: "https://youtu.be/rQ3tkSfrh24",
+    thumbnail: "https://img.youtube.com/vi/rQ3tkSfrh24/maxresdefault.jpg",
+    youtubeId: "rQ3tkSfrh24",
+  },
+  {
     id: "news-yt-10-day4",
     title: "Grade 10 Day 4 | Sumedha Karunanayake",
     title_si: "10 ශ්‍රේණිය - 4 වන දිනය | Sumedha Karunanayake",
