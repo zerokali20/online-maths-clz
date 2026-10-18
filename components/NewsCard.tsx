@@ -122,7 +122,7 @@ export default function NewsCard({ item }: NewsCardProps) {
         {item.youtubeId ? (
           <div
             className="relative w-full overflow-hidden bg-black select-none"
-            style={{ aspectRatio: "4 / 3", minHeight: "220px" }}
+            style={{ aspectRatio: "16 / 9" }}
             onContextMenu={handleContextMenu}
           >
             {/* Thumbnail image */}
@@ -151,17 +151,17 @@ export default function NewsCard({ item }: NewsCardProps) {
               <div
                 className="flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
                 style={{
-                  width: "64px",
-                  height: "44px",
-                  borderRadius: "12px",
+                  width: "52px",
+                  height: "36px",
+                  borderRadius: "10px",
                   background: "#FF0000",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.5)",
                 }}
               >
                 {/* YouTube-style play triangle */}
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -203,17 +203,17 @@ export default function NewsCard({ item }: NewsCardProps) {
             </div>
           </div>
         ) : item.thumbnail ? (
-          /* Square / cropped image box if regular thumbnail exists */
+          /* 16:9 image box if regular thumbnail exists */
           <div
             className="relative w-full overflow-hidden bg-slate-900 select-none"
-            style={{ aspectRatio: "4 / 3", minHeight: "220px" }}
+            style={{ aspectRatio: "16 / 9" }}
             onContextMenu={handleContextMenu}
           >
             <Image
               src={item.thumbnail}
               alt={item.title}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
               style={{
                 objectFit: "cover",
                 objectPosition: item.thumbnailPosition || "top center",
@@ -255,7 +255,7 @@ export default function NewsCard({ item }: NewsCardProps) {
             )}
           </div>
         ) : (
-          <div className="p-6 pb-0">
+          <div className="p-4 pb-0">
             <span
               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${config.className}`}
               style={{ fontFamily: "var(--font-display)" }}
@@ -267,12 +267,12 @@ export default function NewsCard({ item }: NewsCardProps) {
         )}
 
         {/* Card content: Headline + Date */}
-        <div className="flex flex-col flex-1 p-6">
+        <div className="flex flex-col flex-1 p-3.5 sm:p-4">
           <h3
-            className="font-bold mb-2 leading-snug group-hover:text-indigo-500 transition-colors duration-200"
+            className="font-bold mb-1.5 leading-snug group-hover:text-indigo-500 transition-colors duration-200 line-clamp-2"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "1.1rem",
+              fontSize: "0.95rem",
               color: "var(--text-primary)",
             }}
           >
@@ -280,10 +280,10 @@ export default function NewsCard({ item }: NewsCardProps) {
           </h3>
 
           <div
-            className="flex items-center gap-1.5 mt-auto pt-2"
-            style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}
+            className="flex items-center gap-1.5 mt-auto pt-1"
+            style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}
           >
-            <Calendar size={13} strokeWidth={2} />
+            <Calendar size={12} strokeWidth={2} />
             <time dateTime={item.date}>{formatDate(item.date, lang)}</time>
           </div>
         </div>

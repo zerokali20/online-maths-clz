@@ -7,7 +7,7 @@ import Pagination from "@/components/Pagination";
 import { useLanguage } from "@/components/LanguageContext";
 import news from "@/data/news";
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 6;
 
 export default function NewsClient() {
   const { t, lang } = useLanguage();
@@ -28,22 +28,22 @@ export default function NewsClient() {
       {/* ── Page Hero ─────────────────────────────────────────── */}
       <section
         className="section-alt"
-        style={{ paddingTop: "140px", paddingBottom: "60px" }}
+        style={{ paddingTop: "92px", paddingBottom: "16px" }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="text-center"
           >
             <span
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-5"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full mb-2"
               style={{
                 background: "rgba(99,102,241,0.1)",
                 border: "1px solid rgba(99,102,241,0.2)",
                 fontFamily: "var(--font-display)",
-                fontSize: "0.75rem",
+                fontSize: "0.7rem",
                 fontWeight: 600,
                 color: "#6366f1",
                 letterSpacing: "0.08em",
@@ -56,10 +56,10 @@ export default function NewsClient() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 800,
-                fontSize: "clamp(2rem, 5vw, 3.4rem)",
+                fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)",
                 color: "var(--text-primary)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.03em",
+                lineHeight: 1.15,
+                letterSpacing: "-0.02em",
               }}
             >
               {t("news_heading")}
@@ -67,8 +67,8 @@ export default function NewsClient() {
             <p
               style={{
                 color: "var(--text-secondary)",
-                fontSize: "1.05rem",
-                marginTop: "1rem",
+                fontSize: "0.9rem",
+                marginTop: "0.35rem",
               }}
             >
               {t("news_page")} {currentPage} {t("news_of")} {totalPages}
@@ -81,16 +81,16 @@ export default function NewsClient() {
       <section
         id="news-grid"
         className="section-base"
-        style={{ padding: "60px 0 80px" }}
+        style={{ padding: "16px 0 32px" }}
         aria-label="News articles"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {pageItems.length === 0 ? (
-            <p style={{ color: "var(--text-muted)", textAlign: "center", padding: "60px 0" }}>
+            <p style={{ color: "var(--text-muted)", textAlign: "center", padding: "40px 0" }}>
               {t("news_no_items")}
             </p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-8">
               {pageItems.map((item) => (
                 <NewsCard key={item.id} item={item} />
               ))}

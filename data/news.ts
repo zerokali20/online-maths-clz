@@ -29,6 +29,34 @@ export interface NewsItem {
 // ─── News items ───────────────────────────────────────────────
 const rawNews: NewsItem[] = [
   {
+    id: "news-yt-smart-tips",
+    title: "4 Smart Tips to Solve Maths Problems | Sumedha Karunanayake",
+    title_si: "ගණන් හදන්න Smart Tips 4 ක් | Sumedha Karunanayake",
+    date: "2026-10-16",
+    category: "video",
+    description:
+      "4 smart and practical tips to easily solve mathematics problems by Sumedha Karunanayake, 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner). Watch free on YouTube!",
+    description_si:
+      "ගණිත ගැටලු පහසුවෙන් විසඳා ගැනීමට වැදගත් වන Smart Tips 4ක්. 2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් ඉදිරිපත් කෙරේ. දැන්ම නරඹන්න!",
+    link: "https://youtu.be/-3_NtrtCgM4",
+    thumbnail: "https://img.youtube.com/vi/-3_NtrtCgM4/maxresdefault.jpg",
+    youtubeId: "-3_NtrtCgM4",
+  },
+  {
+    id: "news-yt-11-day6",
+    title: "Grade 11 Day 6 | Sumedha Karunanayake",
+    title_si: "11 ශ්‍රේණිය - 6 වන දිනය | Sumedha Karunanayake",
+    date: "2026-10-15",
+    category: "video",
+    description:
+      "Grade 11 Day 6 mathematics seminar conducted by Sumedha Karunanayake. Covering essential exam techniques and worked question practice. Watch online on YouTube!",
+    description_si:
+      "11 ශ්‍රේණිය සිසුන් සඳහා 6 වන දින ගණිත සම්මන්ත්‍රණය සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. විභාග කෙටි ක්‍රම සහ ගැටලු සාකච්ඡාව නොමිලේ නැරඹීමට දැන්ම පිවිසෙන්න!",
+    link: "https://youtu.be/_PzQwBjOCCU",
+    thumbnail: "https://img.youtube.com/vi/_PzQwBjOCCU/maxresdefault.jpg",
+    youtubeId: "_PzQwBjOCCU",
+  },
+  {
     id: "news-yt-9-day5",
     title: "Grade 9 Day 5 | Sets (කුලක) | Sumedha Karunanayake",
     title_si: "Grade 9 Day 5 | කුලක | Sumedha Karunanayake",
