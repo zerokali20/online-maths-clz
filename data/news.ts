@@ -29,6 +29,34 @@ export interface NewsItem {
 // ─── News items ───────────────────────────────────────────────
 const rawNews: NewsItem[] = [
   {
+    id: "news-yt-9-day7",
+    title: "Grade 9 Day 7 | Paper Discussion | Sumedha Karunanayake",
+    title_si: "9 ශ්‍රේණිය Day 7 | Paper Discussion | Sumedha Karunanayake",
+    date: "2026-10-24",
+    category: "video",
+    description:
+      "Grade 9 Day 7 model and past paper discussion seminar conducted by 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner) Sumedha Karunanayake. Watch free on YouTube!",
+    description_si:
+      "9 ශ්‍රේණිය සිසුන් සඳහා 7 වන දින පසුගිය විභාග සහ ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡාව. 2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. නොමිලේ නැරඹීමට දැන්ම පිවිසෙන්න!",
+    link: "https://youtu.be/IemutxwYVJc",
+    thumbnail: "https://img.youtube.com/vi/IemutxwYVJc/maxresdefault.jpg",
+    youtubeId: "IemutxwYVJc",
+  },
+  {
+    id: "news-yt-10-day8",
+    title: "Grade 10 Day 8 | Sumedha Karunanayake",
+    title_si: "10 ශ්‍රේණිය - 8 වන දිනය | Sumedha Karunanayake",
+    date: "2026-10-20",
+    category: "video",
+    description:
+      "Grade 10 Day 8 mathematics seminar conducted by Sumedha Karunanayake, 2019 Central Province Best Mathematics Teacher. Covering essential O/L topics and worked problem solving. Watch free on YouTube!",
+    description_si:
+      "10 ශ්‍රේණිය සිසුන් සඳහා 8 වන දින ගණිත සම්මන්ත්‍රණ වීඩියෝව. 2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. නොමිලේ නැරඹීමට දැන්ම ක්ලික් කරන්න!",
+    link: "https://youtu.be/SlSD-ozXPak",
+    thumbnail: "https://img.youtube.com/vi/SlSD-ozXPak/maxresdefault.jpg",
+    youtubeId: "SlSD-ozXPak",
+  },
+  {
     id: "news-yt-smart-tips",
     title: "4 Smart Tips to Solve Maths Problems | Sumedha Karunanayake",
     title_si: "ගණන් හදන්න Smart Tips 4 ක් | Sumedha Karunanayake",
