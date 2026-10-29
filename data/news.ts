@@ -31,7 +31,7 @@ const rawNews: NewsItem[] = [
   {
     id: "news-yt-9-day7",
     title: "Grade 9 Day 7 | Paper Discussion | Sumedha Karunanayake",
-    title_si: "9 ශ්‍රේණිය Day 7 | Paper Discussion | Sumedha Karunanayake",
+    title_si: "9 ශ්‍රේණිය - 7 වන දිනය | ප්‍රශ්න පත්‍ර සාකච්ඡාව | Sumedha Karunanayake",
     date: "2026-10-24",
     category: "video",
     description:
@@ -87,7 +87,7 @@ const rawNews: NewsItem[] = [
   {
     id: "news-yt-9-day5",
     title: "Grade 9 Day 5 | Sets (කුලක) | Sumedha Karunanayake",
-    title_si: "Grade 9 Day 5 | කුලක | Sumedha Karunanayake",
+    title_si: "9 ශ්‍රේණිය - 5 වන දිනය | කුලක | Sumedha Karunanayake",
     date: "2026-10-04",
     category: "video",
     description:
@@ -129,7 +129,7 @@ const rawNews: NewsItem[] = [
   {
     id: "news-yt-9-day3",
     title: "Grade 9 Day 3 (Inequalities) | Sumedha Karunanayake | Mathematics",
-    title_si: "Grade 9 Day 3 (අසමානතා) | Sumedha Karunanayake | Mathematics",
+    title_si: "9 ශ්‍රේණිය - 3 වන දිනය (අසමානතා) | Sumedha Karunanayake | Mathematics",
     date: "2026-09-25",
     category: "video",
     description:

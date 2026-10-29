@@ -115,7 +115,16 @@ export default function NewsCard({ item }: NewsCardProps) {
         transition={{ duration: 0.5 }}
         whileHover={{ y: -4, boxShadow: "0 12px 36px rgba(0,0,0,0.12)" }}
         onClick={handleCardClick}
-        className="glass-card flex flex-col h-full overflow-hidden cursor-pointer group"
+        tabIndex={0}
+        role="button"
+        aria-label={displayTitle}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleCardClick();
+          }
+        }}
+        className="glass-card flex flex-col h-full overflow-hidden cursor-pointer group focus:outline-none focus:ring-2 focus:ring-indigo-500"
         style={{ padding: 0 }}
       >
         {/* YouTube-style thumbnail for video items with youtubeId */}
@@ -130,6 +139,11 @@ export default function NewsCard({ item }: NewsCardProps) {
             <img
               src={item.thumbnail}
               alt={item.title}
+              onError={(e) => {
+                if (item.youtubeId) {
+                  (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`;
+                }
+              }}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none pointer-events-none"
               draggable={false}
             />
