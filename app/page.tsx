@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Star, Users, Award } from "lucide-react";
 import BackgroundCarousel from "@/components/BackgroundCarousel";
 import Typewriter from "@/components/Typewriter";
+import Counter from "@/components/Counter";
 import NewsCard from "@/components/NewsCard";
 import { useLanguage } from "@/components/LanguageContext";
 import news from "@/data/news";
@@ -126,10 +127,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
             {[
-              { icon: Award, value: "23+", label: "Years Teaching" },
-              { icon: Users, value: "10,000+", label: "Students Guided" },
-              { icon: Star, value: "95%", label: "Distinction Rate" },
-            ].map(({ icon: Icon, value, label }, i) => (
+              { icon: Award, target: 23, suffix: "+", label: "Years Teaching" },
+              { icon: Users, target: 10000, suffix: "+", label: "Students Guided" },
+              { icon: Star, target: 95, suffix: "%", label: "Distinction Rate" },
+            ].map(({ icon: Icon, target, suffix, label }, i) => (
               <motion.div
                 key={label}
                 initial={{ opacity: 0, y: 20 }}
@@ -145,7 +146,7 @@ export default function HomePage() {
                   <Icon size={22} strokeWidth={2} />
                 </div>
                 <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "2.2rem", lineHeight: 1 }}>
-                  {value}
+                  <Counter target={target} suffix={suffix} duration={1.8} />
                 </div>
                 <div style={{ fontFamily: "var(--font-sans)", fontSize: "0.875rem", opacity: 0.85 }}>
                   {label}
