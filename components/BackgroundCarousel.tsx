@@ -52,22 +52,64 @@ export default function BackgroundCarousel() {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div
+      className="absolute inset-0 overflow-hidden"
+      style={{
+        background: "radial-gradient(ellipse at center, #420408 0%, #200103 100%)",
+      }}
+    >
       {/* Current image */}
       <div className="absolute inset-0">
-        <Image
-          src={`/backgrounds/${images[currentIndex]}`}
-          alt=""
-          fill
-          priority
-          quality={85}
-          className="object-cover"
-          sizes="100vw"
-        />
-        {/* Dark overlay for text legibility */}
+        {/* Ambient blurred backdrop to eliminate empty letterboxing */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <Image
+            src={`/backgrounds/${images[currentIndex]}`}
+            alt=""
+            fill
+            priority
+            quality={50}
+            className="object-cover scale-110 blur-2xl opacity-40"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* Sharp contained banner — ensures top logos and bottom department text are fully visible */}
         <div
-          className="absolute inset-0"
-          style={{ background: "rgba(10, 10, 30, 0.55)" }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{
+            paddingTop: "78px",
+            paddingBottom: "52px",
+            paddingLeft: "12px",
+            paddingRight: "12px",
+          }}
+        >
+          <div
+            className="relative w-full h-full max-w-[1920px]"
+            style={{
+              maxHeight: "calc(100svh - 130px)",
+              maxWidth: "calc((100svh - 130px) * 16 / 9)",
+              aspectRatio: "16 / 9",
+            }}
+          >
+            <Image
+              src={`/backgrounds/${images[currentIndex]}`}
+              alt="Sumedha Karunanayake Award Banner"
+              fill
+              priority
+              quality={95}
+              className="object-contain object-center"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+
+        {/* Soft vignette + bottom gradient for bottom-left text readability without obscuring faces */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(10, 5, 15, 0.6) 0%, rgba(10, 5, 15, 0.12) 35%, rgba(10, 5, 15, 0.1) 70%, rgba(10, 5, 15, 0.35) 100%)",
+          }}
         />
       </div>
 
@@ -80,17 +122,49 @@ export default function BackgroundCarousel() {
             transition: `opacity ${FADE_MS}ms ease-in-out`,
           }}
         >
-          <Image
-            src={`/backgrounds/${images[nextIndex]}`}
-            alt=""
-            fill
-            quality={85}
-            className="object-cover"
-            sizes="100vw"
-          />
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <Image
+              src={`/backgrounds/${images[nextIndex]}`}
+              alt=""
+              fill
+              quality={50}
+              className="object-cover scale-110 blur-2xl opacity-40"
+              sizes="100vw"
+            />
+          </div>
           <div
-            className="absolute inset-0"
-            style={{ background: "rgba(10, 10, 30, 0.55)" }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            style={{
+              paddingTop: "78px",
+              paddingBottom: "52px",
+              paddingLeft: "12px",
+              paddingRight: "12px",
+            }}
+          >
+            <div
+              className="relative w-full h-full max-w-[1920px]"
+              style={{
+                maxHeight: "calc(100svh - 130px)",
+                maxWidth: "calc((100svh - 130px) * 16 / 9)",
+                aspectRatio: "16 / 9",
+              }}
+            >
+              <Image
+                src={`/backgrounds/${images[nextIndex]}`}
+                alt=""
+                fill
+                quality={95}
+                className="object-contain object-center"
+                sizes="100vw"
+              />
+            </div>
+          </div>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(10, 5, 15, 0.6) 0%, rgba(10, 5, 15, 0.12) 35%, rgba(10, 5, 15, 0.1) 70%, rgba(10, 5, 15, 0.35) 100%)",
+            }}
           />
         </div>
       )}

@@ -33,105 +33,72 @@ export default function HomePage() {
         {/* Rotating background */}
         <BackgroundCarousel />
 
-        {/* Hero content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
+        {/* Hero content — pinned to the downside left of the banner's yellow border */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
+          style={{
+            paddingTop: "78px",
+            paddingBottom: "52px",
+            paddingLeft: "12px",
+            paddingRight: "12px",
+          }}
+        >
+          <div
+            className="relative w-full h-full max-w-[1920px] pointer-events-none"
             style={{
-              background: "rgba(255,255,255,0.12)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              backdropFilter: "blur(8px)",
+              maxHeight: "calc(100svh - 130px)",
+              maxWidth: "calc((100svh - 130px) * 16 / 9)",
+              aspectRatio: "16 / 9",
             }}
           >
-            <Star size={14} color="#fbbf24" fill="#fbbf24" />
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 600,
-                fontSize: "0.8rem",
-                color: "rgba(255,255,255,0.9)",
-                letterSpacing: "0.05em",
-              }}
+            {/* Left-aligned text box positioned at downside of yellow border */}
+            <div
+              className="absolute left-[19.2%] bottom-[10.5%] z-20 text-left pointer-events-auto max-w-[65%] sm:max-w-[50%]"
             >
-              {about.yearsExperience} {about.statLabel}
-            </span>
-          </motion.div>
+              {/* Tutor name with typewriter */}
+              <motion.h1
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1.15rem, 2.3vw, 2rem)",
+                  fontWeight: 800,
+                  color: "white",
+                  marginBottom: "0.2rem",
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.02em",
+                  textShadow:
+                    "0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.95)",
+                }}
+              >
+                <Typewriter
+                  text="Sumedha Karunanayake"
+                  speed={70}
+                  once
+                  cursorClassName=""
+                  className=""
+                />
+              </motion.h1>
 
-          {/* Tutor name with typewriter */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.7 }}
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(2.4rem, 6vw, 4.2rem)",
-              fontWeight: 800,
-              color: "white",
-              marginBottom: "1.25rem",
-              lineHeight: 1.1,
-              letterSpacing: "-0.03em",
-              textShadow: "0 2px 20px rgba(0,0,0,0.3)",
-            }}
-          >
-            <Typewriter
-              text="Sumedha Karunanayake"
-              speed={70}
-              once
-              cursorClassName=""
-              className=""
-            />
-          </motion.h1>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.7 }}
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-              color: "rgba(255,255,255,0.85)",
-              marginBottom: "2.5rem",
-              maxWidth: "600px",
-              margin: "0 auto 2.5rem",
-              lineHeight: 1.6,
-              textShadow: "0 1px 8px rgba(0,0,0,0.3)",
-            }}
-          >
-            {t("hero_tagline")}
-          </motion.p>
-
-          {/* CTA buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.0, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link href="/contact" id="hero-cta-primary" className="btn-primary">
-              {t("hero_cta")}
-              <ArrowRight size={17} strokeWidth={2.5} />
-            </Link>
-            <Link href="/about" id="hero-cta-secondary"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-white transition-all duration-200"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "0.95rem",
-                background: "rgba(255,255,255,0.12)",
-                border: "1px solid rgba(255,255,255,0.3)",
-                backdropFilter: "blur(8px)",
-                textDecoration: "none",
-              }}
-              onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.2)"}
-              onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.12)"}
-            >
-              {t("home_about_cta")}
-            </Link>
-          </motion.div>
+              {/* Tagline */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8, duration: 0.6 }}
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "clamp(0.72rem, 1.2vw, 0.92rem)",
+                  color: "rgba(255,255,255,0.92)",
+                  lineHeight: 1.35,
+                  textShadow:
+                    "0 2px 8px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.95)",
+                }}
+              >
+                {t("hero_tagline")}
+              </motion.p>
+            </div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
