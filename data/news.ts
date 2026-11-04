@@ -32,7 +32,7 @@ const rawNews: NewsItem[] = [
     id: "news-yt-9-day7",
     title: "Grade 9 Day 7 | Paper Discussion | Sumedha Karunanayake",
     title_si: "9 ශ්‍රේණිය - 7 වන දිනය | ප්‍රශ්න පත්‍ර සාකච්ඡාව | Sumedha Karunanayake",
-    date: "2026-10-24",
+    date: "2026-10-31",
     category: "video",
     description:
       "Grade 9 Day 7 model and past paper discussion seminar conducted by 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner) Sumedha Karunanayake. Watch free on YouTube!",
@@ -41,6 +41,20 @@ const rawNews: NewsItem[] = [
     link: "https://youtu.be/IemutxwYVJc",
     thumbnail: "https://img.youtube.com/vi/IemutxwYVJc/maxresdefault.jpg",
     youtubeId: "IemutxwYVJc",
+  },
+  {
+    id: "news-yt-11-day7",
+    title: "Grade 11 Day 7 | Paper Discussion | Sumedha Karunanayake",
+    title_si: "11 ශ්‍රේණිය - 7 වන දිනය | ප්‍රශ්න පත්‍ර සාකච්ඡාව | Sumedha Karunanayake",
+    date: "2026-10-29",
+    category: "video",
+    description:
+      "Grade 11 Day 7 model and past paper discussion seminar conducted by 2019 Central Province Best Mathematics Teacher (Shilpabhimana Award Winner) Sumedha Karunanayake. Watch free on YouTube!",
+    description_si:
+      "11 ශ්‍රේණිය සිසුන් සඳහා 7 වන දින පසුගිය විභාග සහ ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡාව. 2019 වසරේ මධ්‍යම පළාත් හොඳම ගණිත ගුරුවරයා (ශිල්පාභිමාන සම්මානයෙන් පිදුම් ලැබූ) සුමේධ කරුණානායක ගුරුතුමන් විසින් මෙහෙයවනු ලැබේ. නොමිලේ නැරඹීමට දැන්ම පිවිසෙන්න!",
+    link: "https://youtu.be/oWhmUmJSRGg",
+    thumbnail: "https://img.youtube.com/vi/oWhmUmJSRGg/maxresdefault.jpg",
+    youtubeId: "oWhmUmJSRGg",
   },
   {
     id: "news-yt-10-day8",
